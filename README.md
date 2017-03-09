@@ -1,1 +1,1 @@
-# flights-scraper
+# flights-alerts
