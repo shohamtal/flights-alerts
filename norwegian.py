@@ -8,21 +8,16 @@ class NorwegianScrapper(FlightScrapper):
     def __init__(self):
         pass
 
-    def _day(self, date_str):
-        # date_str: sample '2017/03/26'
-        dt = datetime.strptime(date_str, "%Y/%m/%d")
+    def _day(self, dt):
         return datetime.strftime(dt, "%d")
 
-    def _monthyear(self, date_str):
-        # date_str: sample '2017/03/26'
-        dt = datetime.strptime(date_str, "%Y/%m/%d")
+    def _monthyear(self, dt):
         return datetime.strftime(dt, "%Y%m")
 
 
     def get_rates(self, fly_out_date, fly_back_date, fly_from, fly_to):
-        # dates sample '2017/03/26'
+        # dates sample 2017/03/26
         # fly_from sample 'TLV'
-
 
         d_out = self._day(fly_out_date)
         moye_out = self._monthyear(fly_out_date)
@@ -50,7 +45,6 @@ class NorwegianScrapper(FlightScrapper):
                 for td in tds:
                     if 'fareselect' in td['class']:
                         lbl = td.find('div').find('label')
-                        print lbl.text
                         fly_to_rates.append(int(float(lbl.text)))
 
         fly_back_rates = []
