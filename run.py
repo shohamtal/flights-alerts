@@ -1,10 +1,9 @@
 from datetime import timedelta
-
+from config import SLACK_BOT_TOKEN
 from norwegian import *
 from slacker import Slacker
 
 
-SLACK_BOT_TOKEN = 'xoxb-153794345367-sBk2dQZUCE3wu8VeS94rFyRf'
 SLACK_CHANNEL = '#general'
 
 
